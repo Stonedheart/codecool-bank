@@ -1,4 +1,4 @@
-package com.codecool.shop.dao;
+package com.codecoolbank.javase.dao;
 
 import java.sql.*;
 
