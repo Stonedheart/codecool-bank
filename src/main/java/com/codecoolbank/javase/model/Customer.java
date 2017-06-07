@@ -1,7 +1,5 @@
 package com.codecoolbank.javase.model;
 
-import java.util.Date;
-
 public class Customer extends BaseModel {
     private String firstName;
     private String lastName;
