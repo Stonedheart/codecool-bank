@@ -32,13 +32,35 @@ public class Customer extends BaseModel {
         this.lastLogin = lastLogin;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public String getLastLogin() {
+        return lastLogin;
+    }
 
     public Boolean logIn(String providedLogin, String providedPassword) {
         return this.login.equals(providedLogin) && this.password.equals(providedPassword);
-    }
-
-    public String getName() {
-        return firstName;
     }
 }
