@@ -11,15 +11,22 @@ public class SQLiteJDBC {
     private ResultSet resultSet = null;
 
     private SQLiteJDBC() {
-
         try {
             Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection("jdbc:sqlite:src/main/resources/db/onlineshop.db");
+            conn = DriverManager.getConnection("jdbc:sqlite:src/main/resources/database.db");
             statement = conn.createStatement();
             conn.setAutoCommit(false);
         } catch ( SQLException | ClassNotFoundException e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    public Connection getConn() {
+        return conn;
+    }
+
+    public Statement getStatement() {
+        return statement;
     }
 
     public static SQLiteJDBC getInstance() {
