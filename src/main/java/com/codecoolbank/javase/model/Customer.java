@@ -3,13 +3,14 @@ package com.codecoolbank.javase.model;
 import java.util.Date;
 
 public class Customer extends BaseModel {
-    String firstName;
-    String lastName;
-    String login;
-    String password;
-    String createDate;
-    Boolean isActive;
-    String lastLogin;
+    private String firstName;
+    private String lastName;
+    private String login;
+    private String password;
+    private String createDate;
+    private Boolean isActive;
+    private String lastLogin;
+
 
     public Customer(String firstName, String lastName, String login, String password, String createDate, Boolean isActive, String lastLogin) {
         this.firstName = firstName;
