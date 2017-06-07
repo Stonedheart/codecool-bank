@@ -10,6 +10,15 @@ public class CustomerDaoImpl implements CustomerDao {
     private SQLiteJDBC connToDb = SQLiteJDBC.getInstance();
 
     @Override
+    public Boolean logIn(String providedLogin, String providedPassword) throws SQLException {
+        String selectQuery = String.format("SELECT * FROM Customers WHERE Login = ? AND Password = ?");
+        PreparedStatement preparedStatement = connToDb.getConn().prepareStatement(selectQuery);
+        preparedStatement.setString(1, providedLogin);
+        preparedStatement.setString(1, providedPassword);
+        return preparedStatement.executeQuery() != null;
+    }
+
+    @Override
     public void saveCustomerToDb(Customer customer) throws SQLException {
         String insertQuery = "INSERT INTO Customers (FirstName, LastName, Login, Password, CreateDate, IsActive, LastLogin) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";

@@ -70,8 +70,4 @@ public class Customer extends BaseModel {
     public List<Card> getCardList() {
         return cardList;
     }
-
-    public Boolean logIn(String providedLogin, String providedPassword) {
-        return this.login.equals(providedLogin) && this.password.equals(providedPassword);
-    }
 }
