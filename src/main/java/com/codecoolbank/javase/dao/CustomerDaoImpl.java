@@ -27,8 +27,10 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public Customer findCustomerById(Integer idToFind) throws SQLException {
-        String selectQuery = String.format("SELECT * FROM Customers WHERE CustomerID = '%1$d'", idToFind);
-        ResultSet results = connToDb.executeSelectQuery(selectQuery);
+        String selectQuery = String.format("SELECT * FROM Customers WHERE CustomerID = ?");
+        PreparedStatement preparedStatement = connToDb.getConn().prepareStatement(selectQuery);
+        preparedStatement.setInt(1, idToFind);
+        ResultSet results = preparedStatement.executeQuery();
 
         Integer id = results.getInt("CustomerID");
         String firstName = results.getString("FirstName");
