@@ -2,7 +2,7 @@ package com.codecoolbank.javase.model;
 
 import java.math.BigDecimal;
 
-public abstract class AccountImpl extends AbstractNumberModel implements Account {
+public abstract class AbstractAccount extends AbstractNumberModel implements Account {
     private Customer customer;
     private AccountType accountType;
     private AccountStatus accountStatus;
@@ -11,7 +11,7 @@ public abstract class AccountImpl extends AbstractNumberModel implements Account
     private BigDecimal debitLine;
     private Integer interest;
 
-    public AccountImpl(Customer customer, String number, AccountType accountType, AccountStatus accountStatus, String openDate, BigDecimal balance, BigDecimal debitLine, Integer interest) {
+    public AbstractAccount(Customer customer, String number, AccountType accountType, AccountStatus accountStatus, String openDate, BigDecimal balance, BigDecimal debitLine, Integer interest) {
         super(number);
         this.customer = customer;
         this.accountType = accountType;
@@ -22,7 +22,7 @@ public abstract class AccountImpl extends AbstractNumberModel implements Account
         this.interest = interest;
     }
 
-    public AccountImpl(Integer id, Customer customer, String number, AccountType accountType, AccountStatus accountStatus, String openDate, BigDecimal balance, BigDecimal debitLine, Integer interest) {
+    public AbstractAccount(Integer id, Customer customer, String number, AccountType accountType, AccountStatus accountStatus, String openDate, BigDecimal balance, BigDecimal debitLine, Integer interest) {
         super(id, number);
         this.customer = customer;
         this.accountType = accountType;
