@@ -32,22 +32,4 @@ class CustomerTest {
                 ()-> assertTrue(customer.getLastLogin().equals("06-06-2017"))
         );
     }
-
-//    @Test
-//    void testIfSuccessfullLogInReturnTrue() {
-//        Customer t
-    // estCustomer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
-//        String validLogin = testCustomer.getLogin();
-//        String validPassword = testCustomer.getPassword();
-//        assertTrue(testCustomer.logIn(validLogin, validPassword));
-//    }
-
-//    @Test
-//    void testIfFailLogInReturnFalse() {
-//        Customer testCustomer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
-//        String invalidLogin = "user";
-//        String invalidPassword = "1234";
-//        assertFalse(testCustomer.logIn(invalidLogin, invalidPassword));
-//    }
-
 }
