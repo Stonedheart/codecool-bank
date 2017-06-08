@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AccountTest {
+class SavingAccountTest {
     @Test
     void testIfConstructorWithoutIDIsInitializedValid() {
         Customer customer = new Customer(1,"Jan", "Kowalski", "JFK", "notDead", "11-11-2014", true, "24-01-2017");
