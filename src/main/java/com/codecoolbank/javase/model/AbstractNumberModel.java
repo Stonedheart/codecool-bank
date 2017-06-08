@@ -1,4 +1,5 @@
 package com.codecoolbank.javase.model;
 
-public class AbstractNumberModel {
+public abstract class AbstractNumberModel {
+    
 }
