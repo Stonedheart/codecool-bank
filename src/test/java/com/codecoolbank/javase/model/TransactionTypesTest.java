@@ -10,4 +10,10 @@ class TransactionTypesTest {
         TransactionTypes accountStatuses = new TransactionTypes("External","External transaction to the another account");
         assertEquals(TransactionTypes.class, accountStatuses.getClass());
     }
+
+    @Test
+    void testIfConstructorIsInitializedValid() {
+        TransactionTypes accountStatuses = new TransactionTypes(1,"External","External transaction to the another account");
+        assertEquals(TransactionTypes.class, accountStatuses.getClass());
+    }
 }
