@@ -10,4 +10,10 @@ class TransactionStatusesTest {
         TransactionStatuses accountStatuses = new TransactionStatuses("Waiting","Your transaction is in order to accomplish");
         assertEquals(TransactionStatuses.class, accountStatuses.getClass());
     }
+
+    @Test
+    void testIfConstructorIsInitializedValid() {
+        TransactionStatuses accountStatuses = new TransactionStatuses(1,"Waiting","Your transaction is in order to accomplish");
+        assertEquals(TransactionStatuses.class, accountStatuses.getClass());
+    }
 }
