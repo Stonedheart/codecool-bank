@@ -1,9 +1,6 @@
 package com.codecoolbank.javase.dao;
 
-import com.codecoolbank.javase.model.Account;
-import com.codecoolbank.javase.model.AccountType;
-import com.codecoolbank.javase.model.Customer;
-import com.codecoolbank.javase.model.SavingAccount;
+import com.codecoolbank.javase.model.*;
 import com.oracle.jrockit.jfr.InvalidValueException;
 import org.omg.CORBA.DynAnyPackage.InvalidValue;
 
