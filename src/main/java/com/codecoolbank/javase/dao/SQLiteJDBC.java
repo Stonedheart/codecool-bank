@@ -14,7 +14,7 @@ public class SQLiteJDBC {
         return conn;
     }
 
-    public void ConnectionWithDB() {
+    public void connectionWithDB() {
         try {
             Class.forName("org.sqlite.JDBC");
             this.conn = DriverManager.getConnection("jdbc:sqlite:src/main/resources/database.db");
