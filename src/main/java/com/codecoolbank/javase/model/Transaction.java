@@ -2,7 +2,7 @@ package com.codecoolbank.javase.model;
 
 import java.math.BigDecimal;
 
-public class Transactions extends AbstractDescriptionModel {
+public class Transaction extends AbstractDescriptionModel {
     private String dateOfTransaction;
     private TransactionTypes transactionType;
     private BigDecimal value;
@@ -10,7 +10,7 @@ public class Transactions extends AbstractDescriptionModel {
     private Account account;
     private Card card;
 
-    public Transactions(String dateOfTransaction, TransactionTypes transactionType, BigDecimal value, String description, TransactionStatuses transactionStatus, Account account, Card card) {
+    public Transaction(String dateOfTransaction, TransactionTypes transactionType, BigDecimal value, String description, TransactionStatuses transactionStatus, Account account, Card card) {
         super(description);
         this.dateOfTransaction = dateOfTransaction;
         this.transactionType = transactionType;
@@ -20,7 +20,7 @@ public class Transactions extends AbstractDescriptionModel {
         this.card = card;
     }
 
-    public Transactions(Integer id, String dateOfTransaction, TransactionTypes transactionType, BigDecimal value, String description, TransactionStatuses transactionStatus, Account account, Card card) {
+    public Transaction(Integer id, String dateOfTransaction, TransactionTypes transactionType, BigDecimal value, String description, TransactionStatuses transactionStatus, Account account, Card card) {
         super(id, description);
         this.dateOfTransaction = dateOfTransaction;
         this.transactionType = transactionType;
