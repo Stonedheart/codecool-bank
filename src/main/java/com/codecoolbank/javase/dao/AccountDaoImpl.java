@@ -1,9 +1,9 @@
 package com.codecoolbank.javase.dao;
 
 import com.codecoolbank.javase.model.*;
-import com.oracle.jrockit.jfr.InvalidValueException;
 import org.omg.CORBA.DynAnyPackage.InvalidValue;
 
+import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,12 +32,14 @@ public class AccountDaoImpl implements AccountDao {
             preparedStatement.close();
 
             Customer customer = new CustomerDaoImpl().findCustomerById(customerID);
+            AccountType accountType = new AccountTypeDaoImpl().findAccountTypeById(accountTypeID);
+            AccountStatus accountStatus = new AccountStatusDaoImpl().findAccountStatusById(accountStatusID);
 
             switch (accountTypeID) {
                 case 1:
-                    return new SavingAccount(id, customer, number, accountTypeID, accountStatusID, openDate, balance, debitLine, interest);
+                    return new SavingAccount(id, customer, number, accountType, accountStatus, openDate, BigDecimal.valueOf(balance), BigDecimal.valueOf(debitLine), interest);
                 case 2:
-                    return new DebitAccount(id, customer, number, accountTypeID, accountStatusID, openDate, balance, debitLine, interest);
+                    return new DebitAccount(id, customer, number, accountType, accountStatus, openDate, BigDecimal.valueOf(balance), BigDecimal.valueOf(debitLine), interest);
                 default:
                     throw new InvalidValue("There is no such account type!");
             }
