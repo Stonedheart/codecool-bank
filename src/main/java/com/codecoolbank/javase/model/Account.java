@@ -1,8 +1,8 @@
 package com.codecoolbank.javase.model;
 
 public interface Account {
-    public void deposit(long amount);
-    public void withdraw(long amount);
-    public long getBalance();
-    public int getAccountId();
+    void deposit(long amount);
+    void withdraw(long amount);
+    long getBalance();
+    int getAccountId();
 }
