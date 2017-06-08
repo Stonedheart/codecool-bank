@@ -2,6 +2,8 @@ package com.codecoolbank.javase.model;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
@@ -31,5 +33,17 @@ class CustomerTest {
                 ()-> assertTrue(customer.getIsActive().equals(true)),
                 ()-> assertTrue(customer.getLastLogin().equals("06-06-2017"))
         );
+    }
+
+    @Test
+    void testIsAccountListIsEmptyByDefault() {
+        Customer customer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
+        assertEquals(Collections.emptyList(), customer.getAccountList());
+    }
+
+    @Test
+    void testIsCardsListIsEmptyByDefault() {
+        Customer customer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
+        assertEquals(Collections.emptyList(), customer.getCardList());
     }
 }

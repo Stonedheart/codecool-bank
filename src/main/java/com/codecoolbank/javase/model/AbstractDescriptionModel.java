@@ -11,4 +11,8 @@ public abstract class AbstractDescriptionModel extends AbstractBaseModel {
         super(id);
         this.description = description;
     }
+
+    public String getDescription() {
+        return description;
+    }
 }

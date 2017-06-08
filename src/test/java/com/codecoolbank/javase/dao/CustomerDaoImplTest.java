@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 class CustomerDaoImplTest {
@@ -28,13 +30,26 @@ class CustomerDaoImplTest {
     }
 
     @Test
-    void testIfCustomerIsInsertToDatabaseProperly() throws SQLException {
-        Customer testCustomer = new Customer("Bob", "Nowak", "urMum", "notDead", "11-11-2014", true, "24-01-2017");
-        CustomerDaoImpl customerDao = new CustomerDaoImpl();
-        customerDao.saveCustomerToDb(testCustomer);
+    void testSaveCustomerToDbInsertQuery() throws SQLException {
+        CustomerDaoImpl testCustomerDaoImpl = new CustomerDaoImpl();
+        Customer testCustomer = new Customer("Marian", "Nowak", "mrn", "1234", "01-01-2012", true, "10-11-2016");
+        testCustomerDaoImpl.saveCustomerToDb(testCustomer);
+        Integer testCustomerId = 2;
+        assertEquals(testCustomerId, testCustomerDaoImpl.findCustomerById(testCustomerId).getId());
+    }
 
-        Customer customerFromDb = new CustomerDaoImpl().findCustomerById(2);
-        assertTrue(customerFromDb.getId() == 2);
+    @Test
+    void testSaveCustomerToDbUpdateQuery() throws SQLException {
+        CustomerDaoImpl testCustomerDaoImpl = new CustomerDaoImpl();
+        Integer idCustomerFromDb = 1;
+
+        Customer testCustomer = testCustomerDaoImpl.findCustomerById(idCustomerFromDb);
+        testCustomer.changeCustomerStatus();
+        testCustomerDaoImpl.saveCustomerToDb(testCustomer);
+
+        Customer testCustomerAfterUpdate = testCustomerDaoImpl.findCustomerById(idCustomerFromDb);
+
+        assertEquals(!testCustomer.getIsActive(), testCustomerAfterUpdate.getIsActive());
     }
 
     @Test
