@@ -14,8 +14,14 @@ public class CustomerDaoImpl implements CustomerDao {
         String selectQuery = String.format("SELECT * FROM Customers WHERE Login = ? AND Password = ?");
         PreparedStatement preparedStatement = connToDb.getConn().prepareStatement(selectQuery);
         preparedStatement.setString(1, providedLogin);
-        preparedStatement.setString(1, providedPassword);
-        return preparedStatement.executeQuery() != null;
+        preparedStatement.setString(2, providedPassword);
+        ResultSet result = preparedStatement.executeQuery();
+        if (result.isClosed()) {
+            return false;
+        } else {
+            preparedStatement.close();
+            return true;
+        }
     }
 
     @Override
