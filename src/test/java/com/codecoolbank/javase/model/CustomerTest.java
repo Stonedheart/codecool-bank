@@ -14,28 +14,29 @@ class CustomerTest {
 
     @Test
     void testIfConstructorWithIdInitializeValidClassInstance() {
-        Customer testCustomer = new Customer(1, "Jan", "Kowalski", "JFK", "notDead", "11-11-2014", true, "24-01-2017");
-        assertEquals(Customer.class, testCustomer.getClass());
+        Customer customer = new Customer(1, "Jan", "Kowalski", "JFK", "notDead", "11-11-2014", true, "24-01-2017");
+        assertEquals(Customer.class, customer.getClass());
     }
 
     @Test
     void testGetters() {
-        Customer testCustomer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
+        Customer customer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
         assertAll(
-                ()-> assertTrue(testCustomer.getId() == 1),
-                ()-> assertTrue(testCustomer.getFirstName().equals("Jan")),
-                ()-> assertTrue(testCustomer.getLastName().equals("Kowalski")),
-                ()-> assertTrue(testCustomer.getLogin().equals("jfk")),
-                ()-> assertTrue(testCustomer.getPassword().equals("notdead")),
-                ()-> assertTrue(testCustomer.getCreateDate().equals("11-11-2011")),
-                ()-> assertTrue(testCustomer.getIsActive().equals(true)),
-                ()-> assertTrue(testCustomer.getLastLogin().equals("06-06-2017"))
+                ()-> assertTrue(customer.getId() == 1),
+                ()-> assertTrue(customer.getFirstName().equals("Jan")),
+                ()-> assertTrue(customer.getLastName().equals("Kowalski")),
+                ()-> assertTrue(customer.getLogin().equals("jfk")),
+                ()-> assertTrue(customer.getPassword().equals("notdead")),
+                ()-> assertTrue(customer.getCreateDate().equals("11-11-2011")),
+                ()-> assertTrue(customer.getIsActive().equals(true)),
+                ()-> assertTrue(customer.getLastLogin().equals("06-06-2017"))
         );
     }
 
 //    @Test
 //    void testIfSuccessfullLogInReturnTrue() {
-//        Customer testCustomer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
+//        Customer t
+    // estCustomer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
 //        String validLogin = testCustomer.getLogin();
 //        String validPassword = testCustomer.getPassword();
 //        assertTrue(testCustomer.logIn(validLogin, validPassword));
