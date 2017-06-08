@@ -1,6 +1,6 @@
 package com.codecoolbank.javase.model;
 
-abstract class CodecoolBankModel extends BaseModel {
+public abstract class CodecoolBankModel extends BaseModel {
     private String name;
     private String description;
 
