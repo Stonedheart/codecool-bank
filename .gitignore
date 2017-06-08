@@ -73,6 +73,5 @@ modules.xml
 
 /src/main/resources/database.db
 .idea/
-src/main/java/com/codecoolbank/javase/controller/
-src/main/java/com/codecoolbank/javase/model/
 target/
+src/main/resources/
