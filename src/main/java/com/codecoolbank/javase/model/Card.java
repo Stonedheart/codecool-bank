@@ -9,9 +9,9 @@ public class Card extends AbstractNumberModel {
     private BigDecimal cashWithDrawLimit;
     private BigDecimal limit;
     private Account account;
-    private CardStatuses cardStatus;
+    private CardStatus cardStatus;
 
-    public Card(String number, CardTypes cardType, String validity, BigDecimal buyingLimit, BigDecimal cashWithDrawLimit, BigDecimal limit, Account account, CardStatuses cardStatus) {
+    public Card(String number, CardTypes cardType, String validity, BigDecimal buyingLimit, BigDecimal cashWithDrawLimit, BigDecimal limit, Account account, CardStatus cardStatus) {
         super(number);
         this.cardType = cardType;
         this.validity = validity;
@@ -22,7 +22,7 @@ public class Card extends AbstractNumberModel {
         this.cardStatus = cardStatus;
     }
 
-    public Card(Integer id, String number, CardTypes cardType, String validity, BigDecimal buyingLimit, BigDecimal cashWithDrawLimit, BigDecimal limit, Account account, CardStatuses cardStatus) {
+    public Card(Integer id, String number, CardTypes cardType, String validity, BigDecimal buyingLimit, BigDecimal cashWithDrawLimit, BigDecimal limit, Account account, CardStatus cardStatus) {
         super(id, number);
         this.cardType = cardType;
         this.validity = validity;
