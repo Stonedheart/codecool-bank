@@ -11,14 +11,4 @@ public class AccountControllerImpl implements AccountController {
     public void withdraw(long amount) {
 
     }
-
-    @Override
-    public long getBalance() {
-        return 0;
-    }
-
-    @Override
-    public int getAccountId() {
-        return 0;
-    }
 }
