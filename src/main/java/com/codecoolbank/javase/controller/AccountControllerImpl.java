@@ -19,7 +19,7 @@ public class AccountControllerImpl implements AccountController {
             BigDecimal actualBalance = account.getBalance();
             BigDecimal newBalance = actualBalance.add(amount);
 
-            Account updatedAccount = new Account(account.getId(), acfff) {
+            Account updatedAccount = new Account(account.getId(), account.getCustomer(), account.getNumber(), account.getAccountType(), account.getAccountStatus(), account.getOpenDate(), newBalance, account.getDebitLine(), account.getInterest()) {
             }
         }
     }
