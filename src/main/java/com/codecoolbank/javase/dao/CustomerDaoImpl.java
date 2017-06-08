@@ -5,6 +5,7 @@ import com.codecoolbank.javase.model.Customer;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.lang.reflect.Field;
 
 public class CustomerDaoImpl implements CustomerDao {
     private SQLiteJDBC connToDb = SQLiteJDBC.getInstance();
@@ -17,16 +18,18 @@ public class CustomerDaoImpl implements CustomerDao {
         preparedStatement.setString(2, providedPassword);
         ResultSet result = preparedStatement.executeQuery();
         if (result.isClosed()) {
+            connToDb.closeJDBC();
             return false;
         } else {
             preparedStatement.close();
+            connToDb.closeJDBC();
             return true;
         }
     }
 
     @Override
     public void saveCustomerToDb(Customer customer) throws SQLException {
-        if (customer.getId().getClass() == Integer.class) {
+        if (customer.getId() == null) {
             String insertQuery = "INSERT INTO Customers (FirstName, LastName, Login, Password, CreateDate, IsActive, LastLogin) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connToDb.connectionWithDB().prepareStatement(insertQuery);
@@ -39,6 +42,7 @@ public class CustomerDaoImpl implements CustomerDao {
             preparedStatement.setString(7, customer.getLastLogin());
             preparedStatement.executeUpdate();
             preparedStatement.close();
+            connToDb.closeJDBC();
         } else {
             String updateQuery = "UPDATE Customers SET `FirstName` = ?, `LastName` = ?, `Login` = ?, `Password` = ?, `IsActive` = ?, `LastLogin` = ? WHERE `CustomerID` = ?";
             PreparedStatement preparedStatement = connToDb.connectionWithDB().prepareStatement(updateQuery);
@@ -51,6 +55,7 @@ public class CustomerDaoImpl implements CustomerDao {
             preparedStatement.setInt(7, customer.getId());
             preparedStatement.executeUpdate();
             preparedStatement.close();
+            connToDb.closeJDBC();
         }
     }
 
@@ -71,9 +76,11 @@ public class CustomerDaoImpl implements CustomerDao {
             String lastLogin = results.getString("LastLogin");
 
             preparedStatement.close();
+            connToDb.closeJDBC();
             return new Customer(id, firstName, lastName, login, password, createDate, isActive, lastLogin);
 
         } else {
+            connToDb.closeJDBC();
             return null;
         }
     }
