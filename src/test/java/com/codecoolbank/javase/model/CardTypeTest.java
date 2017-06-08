@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class CardTypeTest {
     @Test
     void testIfConstructorWithoutIDIsInitializedValid() {
-        CardType testCardType = new CardType("Debit", "Debit card for your savings, without credit limit");
-        assertEquals(CardType.class, testCardType.getClass());
+        CardType cardType = new CardType("Debit", "Debit card for your savings, without credit limit");
+        assertEquals(CardType.class, cardType.getClass());
     }
 
     @Test
     void testIfConstructorIsInitializedValid() {
-        CardType testCardType = new CardType(1, "Debit", "Debit card for your savings, without credit limit");
-        assertEquals(CardType.class, testCardType.getClass());
+        CardType cardType = new CardType(1, "Debit", "Debit card for your savings, without credit limit");
+        assertEquals(CardType.class, cardType.getClass());
     }
 }
