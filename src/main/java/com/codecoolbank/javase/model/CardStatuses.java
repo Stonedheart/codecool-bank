@@ -6,4 +6,7 @@ public class CardStatuses extends CodecoolBankModel {
         super(name, description);
     }
 
+    public CardStatuses(Integer id, String name, String description) {
+        super(id, name, description);
+    }
 }
