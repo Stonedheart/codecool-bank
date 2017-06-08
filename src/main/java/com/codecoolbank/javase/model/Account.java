@@ -32,4 +32,8 @@ public abstract class Account extends AbstractNumberModel {
         this.debitLine = debitLine;
         this.interest = interest;
     }
+
+    public BigDecimal getBalance() {
+        return this.balance;
+    }
 }
