@@ -57,4 +57,11 @@ class CustomerDaoImplTest {
         Customer customerFromDb = new CustomerDaoImpl().findCustomerById(1);
         assertTrue(customerFromDb.getId() == 1);
     }
+
+    @Test
+    void testIfFindByIdReturnNullIfIdIsInvalid() throws SQLException {
+        Integer invalidCustomerId = 10000000;
+        Customer customerFromDb = new CustomerDaoImpl().findCustomerById(invalidCustomerId);
+        assertEquals(null, customerFromDb );
+    }
 }
