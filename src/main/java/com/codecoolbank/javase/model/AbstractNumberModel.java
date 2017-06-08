@@ -6,4 +6,9 @@ public abstract class AbstractNumberModel extends AbstractBaseModel {
     public AbstractNumberModel(String number) {
         this.number = number;
     }
+
+    public AbstractNumberModel(Integer id, String number) {
+        super(id);
+        this.number = number;
+    }
 }
