@@ -21,10 +21,10 @@ public class AccountControllerImpl implements AccountController {
             BigDecimal actualBalance = account.getBalance();
             BigDecimal newBalance = actualBalance.add(amount);
 
-            switch (account.getAccountType().getId()) {
-                case 1:
+            switch (account.getAccountType().getName()) {
+                case "Saving account":
                     SavingAccount updatedSavingAccount = new SavingAccount(account.getId(), account.getCustomer(), account.getNumber(), account.getAccountType(), account.getAccountStatus(), account.getOpenDate(), newBalance, account.getDebitLine(), account.getInterest());
-                case 2:
+                case "Debit account":
                     DebitAccount updatedDebitAccount = new DebitAccount(account.getId(), account.getCustomer(), account.getNumber(), account.getAccountType(), account.getAccountStatus(), account.getOpenDate(), newBalance, account.getDebitLine(), account.getInterest());
                 default:
                     throw new InvalidValue("There is no such account type!");
