@@ -31,11 +31,13 @@ public class AccountDaoImpl implements AccountDao {
 
             preparedStatement.close();
 
+            Customer customer = new CustomerDaoImpl().findCustomerById(customerID);
+            
             switch (accountTypeID) {
                 case 1:
-                    return new SavingAccount(id, customerID, number, accountTypeID, accountStatusID, openDate, balance, debitLine, interest);
+                    return new SavingAccount(id, customer, number, accountTypeID, accountStatusID, openDate, balance, debitLine, interest);
                 case 2:
-                    return new DebitAccount(id, customerID, number, accountTypeID, accountStatusID, openDate, balance, debitLine, interest);
+                    return new DebitAccount(id, customer, number, accountTypeID, accountStatusID, openDate, balance, debitLine, interest);
                 default:
                     throw new InvalidValue("There is no such account type!");
             }
