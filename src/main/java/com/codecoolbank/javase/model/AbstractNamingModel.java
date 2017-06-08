@@ -12,4 +12,8 @@ public abstract class AbstractNamingModel extends AbstractDescriptionModel {
         super(id, description);
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
 }
