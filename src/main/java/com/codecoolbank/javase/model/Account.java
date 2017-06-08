@@ -2,7 +2,7 @@ package com.codecoolbank.javase.model;
 
 import java.math.BigDecimal;
 
-public class Accounts {
+public class Account {
     private Customer customer;
     private String number;
     private AccountTypes accountType;
