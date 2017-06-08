@@ -2,8 +2,7 @@ package com.codecoolbank.javase.model;
 
 import java.math.BigDecimal;
 
-public class Card extends AbstractBaseModel {
-    private String number;
+public class Card extends AbstractNumberModel {
     private CardTypes cardType;
     private String validity;
     private BigDecimal buyingLimit;
@@ -13,7 +12,7 @@ public class Card extends AbstractBaseModel {
     private CardStatuses cardStatus;
 
     public Card(String number, CardTypes cardType, String validity, BigDecimal buyingLimit, BigDecimal cashWithDrawLimit, BigDecimal limit, Account account, CardStatuses cardStatus) {
-        this.number = number;
+        super(number);
         this.cardType = cardType;
         this.validity = validity;
         this.buyingLimit = buyingLimit;
@@ -24,8 +23,7 @@ public class Card extends AbstractBaseModel {
     }
 
     public Card(Integer id, String number, CardTypes cardType, String validity, BigDecimal buyingLimit, BigDecimal cashWithDrawLimit, BigDecimal limit, Account account, CardStatuses cardStatus) {
-        super(id);
-        this.number = number;
+        super(id, number);
         this.cardType = cardType;
         this.validity = validity;
         this.buyingLimit = buyingLimit;
