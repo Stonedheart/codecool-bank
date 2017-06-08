@@ -26,18 +26,32 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public void saveCustomerToDb(Customer customer) throws SQLException {
-        String insertQuery = "INSERT INTO Customers (FirstName, LastName, Login, Password, CreateDate, IsActive, LastLogin) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement pstmt = connToDb.connectionWithDB().prepareStatement(insertQuery);
-        pstmt.setString(1, customer.getFirstName());
-        pstmt.setString(2, customer.getLastName());
-        pstmt.setString(3, customer.getLogin());
-        pstmt.setString(4, customer.getPassword());
-        pstmt.setString(5, customer.getCreateDate());
-        pstmt.setInt(6, (customer.getIsActive()) ? 1 : 0 );
-        pstmt.setString(7, customer.getLastLogin());
-        pstmt.executeUpdate();
-        pstmt.close();
+        if (customer.getId().getClass() == Integer.class) {
+            String insertQuery = "INSERT INTO Customers (FirstName, LastName, Login, Password, CreateDate, IsActive, LastLogin) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connToDb.connectionWithDB().prepareStatement(insertQuery);
+            preparedStatement.setString(1, customer.getFirstName());
+            preparedStatement.setString(2, customer.getLastName());
+            preparedStatement.setString(3, customer.getLogin());
+            preparedStatement.setString(4, customer.getPassword());
+            preparedStatement.setString(5, customer.getCreateDate());
+            preparedStatement.setInt(6, (customer.getIsActive()) ? 1 : 0 );
+            preparedStatement.setString(7, customer.getLastLogin());
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } else {
+            String updateQuery = "UPDATE Customers SET `FirstName` = ?, `LastName` = ?, `Login` = ?, `Password` = ?, `IsActive` = ?, `LastLogin` = ? WHERE `CustomerID` = ?";
+            PreparedStatement preparedStatement = connToDb.connectionWithDB().prepareStatement(updateQuery);
+            preparedStatement.setString(1, customer.getFirstName());
+            preparedStatement.setString(2, customer.getLastName());
+            preparedStatement.setString(3, customer.getLogin());
+            preparedStatement.setString(4, customer.getPassword());
+            preparedStatement.setInt(5, customer.getIsActive() ? 1 : 0);
+            preparedStatement.setString(6, customer.getLastLogin());
+            preparedStatement.setInt(7, customer.getId());
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        }
     }
 
     @Override
