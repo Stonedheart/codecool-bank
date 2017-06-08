@@ -12,7 +12,7 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public Boolean logIn(String providedLogin, String providedPassword) throws SQLException {
         String selectQuery = String.format("SELECT * FROM Customers WHERE Login = ? AND Password = ?");
-        PreparedStatement preparedStatement = connToDb.getConn().prepareStatement(selectQuery);
+        PreparedStatement preparedStatement = connToDb.connectionWithDB().prepareStatement(selectQuery);
         preparedStatement.setString(1, providedLogin);
         preparedStatement.setString(2, providedPassword);
         ResultSet result = preparedStatement.executeQuery();
@@ -28,7 +28,7 @@ public class CustomerDaoImpl implements CustomerDao {
     public void saveCustomerToDb(Customer customer) throws SQLException {
         String insertQuery = "INSERT INTO Customers (FirstName, LastName, Login, Password, CreateDate, IsActive, LastLogin) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement pstmt = connToDb.getConn().prepareStatement(insertQuery);
+        PreparedStatement pstmt = connToDb.connectionWithDB().prepareStatement(insertQuery);
         pstmt.setString(1, customer.getFirstName());
         pstmt.setString(2, customer.getLastName());
         pstmt.setString(3, customer.getLogin());
@@ -43,19 +43,24 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public Customer findCustomerById(Integer idToFind) throws SQLException {
         String selectQuery = String.format("SELECT * FROM Customers WHERE CustomerID = ?");
-        PreparedStatement preparedStatement = connToDb.getConn().prepareStatement(selectQuery);
+        PreparedStatement preparedStatement = connToDb.connectionWithDB().prepareStatement(selectQuery);
         preparedStatement.setInt(1, idToFind);
         ResultSet results = preparedStatement.executeQuery();
+        if (!results.isClosed()) {
+            Integer id = results.getInt("CustomerID");
+            String firstName = results.getString("FirstName");
+            String lastName = results.getString("LastName");
+            String login = results.getString("Login");
+            String password = results.getString("Password");
+            String createDate = results.getString("CreateDate");
+            Boolean isActive = results.getInt("IsActive") != 0;
+            String lastLogin = results.getString("LastLogin");
 
-        Integer id = results.getInt("CustomerID");
-        String firstName = results.getString("FirstName");
-        String lastName = results.getString("LastName");
-        String login = results.getString("Login");
-        String password = results.getString("Password");
-        String createDate = results.getString("CreateDate");
-        Boolean isActive = results.getInt("IsActive") != 0;
-        String lastLogin = results.getString("LastLogin");
+            preparedStatement.close();
+            return new Customer(id, firstName, lastName, login, password, createDate, isActive, lastLogin);
 
-        return new Customer(id, firstName, lastName, login, password, createDate, isActive, lastLogin);
+        } else {
+            return null;
+        }
     }
 }

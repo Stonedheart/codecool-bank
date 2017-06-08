@@ -10,19 +10,16 @@ public class SQLiteJDBC {
     private Statement statement = null;
     private ResultSet resultSet = null;
 
-    private SQLiteJDBC() {
+    public Connection connectionWithDB() {
         try {
             Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection("jdbc:sqlite:src/main/resources/database.db");
+            this.conn = DriverManager.getConnection("jdbc:sqlite:src/main/resources/database.db");
             statement = conn.createStatement();
             conn.setAutoCommit(false);
-        } catch ( SQLException | ClassNotFoundException e) {
-            System.err.println(e.getMessage());
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
         }
-    }
-
-    public Connection getConn() {
-        return conn;
+        return this.conn;
     }
 
     public Statement getStatement() {
