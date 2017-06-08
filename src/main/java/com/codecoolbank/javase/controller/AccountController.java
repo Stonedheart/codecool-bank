@@ -1,6 +1,6 @@
-package com.codecoolbank.javase.model;
+package com.codecoolbank.javase.controller;
 
-public interface Account {
+public interface AccountController {
     void deposit(long amount);
     void withdraw(long amount);
     long getBalance();
