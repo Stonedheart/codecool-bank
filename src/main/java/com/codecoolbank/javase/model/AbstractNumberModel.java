@@ -11,4 +11,8 @@ public abstract class AbstractNumberModel extends AbstractBaseModel {
         super(id);
         this.number = number;
     }
+
+    public String getNumber() {
+        return number;
+    }
 }
