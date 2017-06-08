@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class TransactionTypeTest {
     @Test
     void testIfConstructorWithoutIDIsInitializedValid() {
-        TransactionType accountStatuses = new TransactionType("External", "External transaction to the another account");
-        assertEquals(TransactionType.class, accountStatuses.getClass());
+        TransactionType transactionType = new TransactionType("External", "External transaction to the another account");
+        assertEquals(TransactionType.class, transactionType.getClass());
     }
 
     @Test
     void testIfConstructorIsInitializedValid() {
-        TransactionType accountStatuses = new TransactionType(1, "External", "External transaction to the another account");
-        assertEquals(TransactionType.class, accountStatuses.getClass());
+        TransactionType transactionType = new TransactionType(1, "External", "External transaction to the another account");
+        assertEquals(TransactionType.class, transactionType.getClass());
     }
 }
