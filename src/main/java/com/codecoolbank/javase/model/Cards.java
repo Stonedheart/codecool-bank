@@ -11,4 +11,15 @@ public class Cards {
     private CardTypes cardType;
     private CardStatuses cardStatus;
     private Accounts account;
+
+    public Cards(String number, String validity, BigDecimal buyingLimit, BigDecimal cashWithDrawLimit, BigDecimal limit, CardTypes cardType, CardStatuses cardStatus, Accounts account) {
+        this.number = number;
+        this.validity = validity;
+        this.buyingLimit = buyingLimit;
+        this.cashWithDrawLimit = cashWithDrawLimit;
+        this.limit = limit;
+        this.cardType = cardType;
+        this.cardStatus = cardStatus;
+        this.account = account;
+    }
 }
