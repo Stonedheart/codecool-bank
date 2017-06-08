@@ -12,6 +12,24 @@ public class AccountDaoImpl implements AccountDao {
     SQLiteJDBC connToDB = SQLiteJDBC.getInstance();
 
     @Override
+    public void saveAccountToDb(Account account) throws SQLException {
+        String insertQuery = "INSERT INTO Accounts (`AccountID`, `CustomerID`, `Number`, `AccountTypeID`, `AccountStatusID`, `OpenDate`, `Balance`, `DebitLine`, `Interest`) " +
+                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement preparedStatement = connToDB.connectionWithDB().prepareStatement(insertQuery);
+        preparedStatement.setInt(1, account.getId());
+        preparedStatement.setInt(2, account.getCustomer().getId());
+        preparedStatement.setString(3, account.getNumber());
+        preparedStatement.setInt(4, account.getAccountType().getId());
+        preparedStatement.setInt(5, account.getAccountStatus().getId());
+        preparedStatement.setString(6, account.getOpenDate());
+        preparedStatement.setInt(7, account.getBalance().intValueExact());
+        preparedStatement.setInt(8, account.getDebitLine().intValueExact());
+        preparedStatement.setInt(9, account.getInterest());
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    @Override
     public Account findAccountByID(Integer id) throws SQLException, InvalidValue {
         String selectQuery = String.format("SELECT * FROM Accounts WHERE `AccountID` = ?");
         PreparedStatement preparedStatement = connToDB.connectionWithDB().prepareStatement(selectQuery);
