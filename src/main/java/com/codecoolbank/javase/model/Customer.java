@@ -11,7 +11,7 @@ public class Customer extends AbstractBaseModel {
     private String createDate;
     private Boolean isActive;
     private String lastLogin;
-//    private List<Account> accountList = new ArrayList<>();
+    private List<Accounts> accountsList = new ArrayList<>();
     private List<Cards> cardsList = new ArrayList<>();
 
     public Customer(String firstName, String lastName, String login, String password, String createDate, Boolean isActive, String lastLogin) {
@@ -63,9 +63,9 @@ public class Customer extends AbstractBaseModel {
         return lastLogin;
     }
 
-//    public List<Account> getAccountsList() {
-//        return accountList;
-//    }
+    public List<Accounts> getAccountsList() {
+        return accountsList;
+    }
 
     public List<Cards> getCardsList() {
         return cardsList;
