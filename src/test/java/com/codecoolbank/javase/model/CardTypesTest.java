@@ -10,4 +10,10 @@ class CardTypesTest {
         CardTypes accountStatuses = new CardTypes("Debit","Debit card for your savings, without credit limit");
         assertEquals(CardTypes.class, accountStatuses.getClass());
     }
+
+    @Test
+    void testIfConstructorIsInitializedValid() {
+        CardTypes accountStatuses = new CardTypes(1,"Debit","Debit card for your savings, without credit limit");
+        assertEquals(CardTypes.class, accountStatuses.getClass());
+    }
 }
