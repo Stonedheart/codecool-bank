@@ -33,15 +33,35 @@ public abstract class Account extends AbstractNumberModel {
         this.interest = interest;
     }
 
-    public BigDecimal getBalance() {
-        return this.balance;
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
     }
 
     public AccountStatus getAccountStatus() {
         return accountStatus;
     }
 
+    public String getOpenDate() {
+        return openDate;
+    }
+
+    public BigDecimal getBalance() {
+        return this.balance;
+    }
+
     private void setBalance(BigDecimal balance) {
         this.balance = balance;
+    }
+
+    public BigDecimal getDebitLine() {
+        return debitLine;
+    }
+
+    public Integer getInterest() {
+        return interest;
     }
 }
