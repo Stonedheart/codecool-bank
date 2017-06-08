@@ -1,7 +1,8 @@
 package com.codecoolbank.javase.model;
 
-/**
- * Created by cc-student-lap-13 on 08.06.17.
- */
-public class AccountTypes {
+public class AccountTypes extends CodecoolBankModel {
+
+    public AccountTypes(Integer id, String name, String description) {
+        super(id, name, description);
+    }
 }
