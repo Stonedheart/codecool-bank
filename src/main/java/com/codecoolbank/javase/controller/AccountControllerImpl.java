@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 
 public class AccountControllerImpl implements AccountController {
+    private AccountDaoImpl accountDaoImpl = new AccountDaoImpl();
 
     @Override
     public void deposit(Integer id, BigDecimal amount) throws SQLException, InvalidValue {
@@ -17,6 +18,7 @@ public class AccountControllerImpl implements AccountController {
         if (account.equals(null)) {
             throw new NullPointerException("Account does not exists!");
         }
+
         if (account.getAccountStatus().getName().equals("Active")) {
             BigDecimal actualBalance = account.getBalance();
             BigDecimal newBalance = actualBalance.add(amount);
@@ -24,8 +26,11 @@ public class AccountControllerImpl implements AccountController {
             switch (account.getAccountType().getName()) {
                 case "Saving account":
                     SavingAccount updatedSavingAccount = new SavingAccount(account.getId(), account.getCustomer(), account.getNumber(), account.getAccountType(), account.getAccountStatus(), account.getOpenDate(), newBalance, account.getDebitLine(), account.getInterest());
+                    accountDaoImpl.saveAccountToDb(updatedSavingAccount);
                 case "Debit account":
                     DebitAccount updatedDebitAccount = new DebitAccount(account.getId(), account.getCustomer(), account.getNumber(), account.getAccountType(), account.getAccountStatus(), account.getOpenDate(), newBalance, account.getDebitLine(), account.getInterest());
+                    accountDaoImpl.saveAccountToDb(updatedDebitAccount);
+
                 default:
                     throw new InvalidValue("There is no such account type!");
             }
