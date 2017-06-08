@@ -14,4 +14,13 @@ public abstract class AbstractCodecoolBankModel extends AbstractBaseModel {
         this.name = name;
         this.description = description;
     }
+
+    public AbstractCodecoolBankModel(String description) {
+        this.description = description;
+    }
+
+    public AbstractCodecoolBankModel(Integer id, String description) {
+        super(id);
+        this.description = description;
+    }
 }
