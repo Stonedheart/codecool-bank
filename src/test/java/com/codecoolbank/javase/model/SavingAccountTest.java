@@ -88,4 +88,24 @@ class SavingAccountTest {
         BigDecimal newBalance = BigDecimal.valueOf(-1.00);
         assertThrows(InvalidValue.class, ()-> new SavingAccount(savingAccount.getId(), savingAccount.getCustomer(), savingAccount.getNumber(), savingAccount.getAccountType(), savingAccount.getAccountStatus(), savingAccount.getOpenDate(), newBalance, savingAccount.getDebitLine(), savingAccount.getInterest()));
     }
+
+    @Test
+    void testIfDebitLineFromDebitAccountIsValid() throws InvalidValue {
+        Customer customer = new Customer(1,"Jan", "Kowalski", "JFK", "notDead", "11-11-2014", true, "24-01-2017");
+        AccountType accountType = new AccountType(1, "Saving account", "Account for your savings, percentage 5%");
+        AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");
+
+        SavingAccount savingAccount = new SavingAccount(1, customer, "00008798123400000012", accountType, accountStatus, "12-02-2015", BigDecimal.valueOf(2500.00), BigDecimal.valueOf(0.00), 5);
+        assertEquals(BigDecimal.valueOf(0.00), savingAccount.getDebitLine());
+    }
+
+    @Test
+    void testIfInterestFromDebitAccountIsValid() throws InvalidValue {
+        Customer customer = new Customer(1,"Jan", "Kowalski", "JFK", "notDead", "11-11-2014", true, "24-01-2017");
+        AccountType accountType = new AccountType(1, "Saving account", "Account for your savings, percentage 5%");
+        AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");
+
+        SavingAccount savingAccount = new SavingAccount(1, customer, "00008798123400000012", accountType, accountStatus, "12-02-2015", BigDecimal.valueOf(2500.00), BigDecimal.valueOf(0.00), 5);
+        assertEquals(5, savingAccount.getInterest().intValue());
+    }
 }
