@@ -7,8 +7,8 @@ public class Transactions extends AbstractCodecoolBankModel {
     private BigDecimal value;
     private TransactionTypes transactionType;
     private TransactionStatuses transactionStatus;
-    private Account account;
-    private Card card;
+    private Accounts account;
+    private Cards card;
 
     public Transactions(String dateOfTransaction, BigDecimal value, String description, TransactionTypes transactionType, TransactionStatuses transactionStatus, Account account, Card card) {
         super(description);
