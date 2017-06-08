@@ -11,6 +11,7 @@ public class Customer extends AbstractBaseModel {
     private String createDate;
     private Boolean isActive;
     private String lastLogin;
+
     private List<Accounts> accountsList = new ArrayList<>();
     private List<Cards> cardsList = new ArrayList<>();
 
