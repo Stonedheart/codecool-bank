@@ -2,7 +2,7 @@ package com.codecoolbank.javase.model;
 
 import java.math.BigDecimal;
 
-public class AccountImpl extends AbstractNumberModel {
+public abstract class AccountImpl extends AbstractNumberModel implements Account {
     private Customer customer;
     private AccountType accountType;
     private AccountStatus accountStatus;
