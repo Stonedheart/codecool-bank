@@ -1,6 +1,6 @@
 package com.codecoolbank.javase.model;
 
-abstract class BaseModel {
+public abstract class BaseModel {
     private Integer id;
 
     public BaseModel() {}
