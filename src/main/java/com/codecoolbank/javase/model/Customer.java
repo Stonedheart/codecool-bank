@@ -1,9 +1,6 @@
 package com.codecoolbank.javase.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Customer extends BaseModel {
+public class Customer extends AbstractBaseModel {
     private String firstName;
     private String lastName;
     private String login;

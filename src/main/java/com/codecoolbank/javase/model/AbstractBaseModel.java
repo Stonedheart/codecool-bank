@@ -1,11 +1,11 @@
 package com.codecoolbank.javase.model;
 
-public abstract class BaseModel {
+public abstract class AbstractBaseModel {
     private Integer id;
 
-    public BaseModel() {}
+    public AbstractBaseModel() {}
 
-    public BaseModel(Integer id) {
+    public AbstractBaseModel(Integer id) {
         this.id = id;
     }
 
