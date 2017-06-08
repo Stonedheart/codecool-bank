@@ -1,6 +1,7 @@
 package com.codecoolbank.javase.model;
 
 import org.junit.jupiter.api.Test;
+import org.omg.CORBA.DynAnyPackage.InvalidValue;
 
 import java.math.BigDecimal;
 
@@ -18,7 +19,7 @@ class SavingAccountTest {
     }
 
     @Test
-    void testIfConstructorIsInitializedValid() {
+    void testIfConstructorIsInitializedValid() throws InvalidValue {
         Customer customer = new Customer(1,"Jan", "Kowalski", "JFK", "notDead", "11-11-2014", true, "24-01-2017");
         AccountType accountType = new AccountType(1, "Saving account", "Account for your savings, percentage 5%");
         AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");
@@ -28,7 +29,7 @@ class SavingAccountTest {
     }
 
     @Test
-    void testIfBalanceFromSavingAccountIsValid() {
+    void testIfBalanceFromSavingAccountIsValid() throws InvalidValue {
         Customer customer = new Customer(1,"Jan", "Kowalski", "JFK", "notDead", "11-11-2014", true, "24-01-2017");
         AccountType accountType = new AccountType(1, "Saving account", "Account for your savings, percentage 5%");
         AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");

@@ -1,6 +1,7 @@
 package com.codecoolbank.javase.model;
 
 import org.junit.jupiter.api.Test;
+import org.omg.CORBA.DynAnyPackage.InvalidValue;
 
 import java.math.BigDecimal;
 
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CardTest {
     @Test
-    void testIfConstructorWithoutIDIsInitializedValid() {
+    void testIfConstructorWithoutIDIsInitializedValid() throws InvalidValue {
         CardType cardType = new CardType(1, "Debit", "Debit card for your savings, without credit limit");
         CardStatus cardStatus = new CardStatus(1, "Active", "Card is active");
 
@@ -22,7 +23,7 @@ class CardTest {
     }
 
     @Test
-    void testIfConstructorIsInitializedValid() {
+    void testIfConstructorIsInitializedValid() throws InvalidValue {
         CardType cardType = new CardType(1, "Debit", "Debit card for your savings, without credit limit");
         CardStatus cardStatus = new CardStatus(1, "Active", "Card is active");
 
