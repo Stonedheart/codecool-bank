@@ -1,6 +1,6 @@
 package com.codecoolbank.javase.model;
 
-public class AccountStatuses extends AbstractDescriptionModel {
+public class AccountStatuses extends AbstractNamingModel {
 
     public AccountStatuses(String name, String description) {
         super(name, description);
