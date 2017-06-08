@@ -1,6 +1,6 @@
 package com.codecoolbank.javase.model;
 
-public class TransactionTypes extends AbstractCodecoolBankModel {
+public class TransactionTypes extends AbstractDescriptionModel {
 
     public TransactionTypes(String name, String description) {
         super(name, description);

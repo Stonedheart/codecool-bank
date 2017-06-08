@@ -2,7 +2,7 @@ package com.codecoolbank.javase.model;
 
 import java.math.BigDecimal;
 
-public class Transactions extends AbstractCodecoolBankModel {
+public class Transactions extends AbstractDescriptionModel {
     private String dateOfTransaction;
     private TransactionTypes transactionType;
     private BigDecimal value;

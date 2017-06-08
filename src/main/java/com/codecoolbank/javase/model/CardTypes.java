@@ -1,6 +1,6 @@
 package com.codecoolbank.javase.model;
 
-public class CardTypes extends AbstractCodecoolBankModel {
+public class CardTypes extends AbstractDescriptionModel {
 
     public CardTypes(String name, String description) {
         super(name, description);
