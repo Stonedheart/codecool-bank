@@ -10,7 +10,7 @@ public class Transactions extends AbstractCodecoolBankModel {
     private Accounts account;
     private Cards card;
 
-    public Transactions(String dateOfTransaction, BigDecimal value, String description, TransactionTypes transactionType, TransactionStatuses transactionStatus, Account account, Cards card) {
+    public Transactions(String dateOfTransaction, BigDecimal value, String description, TransactionTypes transactionType, TransactionStatuses transactionStatus, Accounts account, Cards card) {
         super(description);
         this.dateOfTransaction = dateOfTransaction;
         this.value = value;
@@ -20,7 +20,7 @@ public class Transactions extends AbstractCodecoolBankModel {
         this.card = card;
     }
 
-    public Transactions(Integer id, String dateOfTransaction, BigDecimal value, String description, TransactionTypes transactionType, TransactionStatuses transactionStatus, Account account, Cards card) {
+    public Transactions(Integer id, String dateOfTransaction, BigDecimal value, String description, TransactionTypes transactionType, TransactionStatuses transactionStatus, Accounts account, Cards card) {
         super(id, description);
         this.dateOfTransaction = dateOfTransaction;
         this.value = value;
