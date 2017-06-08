@@ -14,7 +14,7 @@ class SavingAccountTest {
         AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");
 
         SavingAccount savingAccount = new SavingAccount(customer, "00008798123400000012", accountType, accountStatus, "12-02-2015", BigDecimal.valueOf(2500.00), BigDecimal.valueOf(0.00), 1);
-        assertEquals(Account.class, savingAccount.getClass());
+        assertEquals(SavingAccount.class, savingAccount.getClass());
     }
 
     @Test
@@ -24,6 +24,6 @@ class SavingAccountTest {
         AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");
 
         SavingAccount savingAccount = new SavingAccount(1, customer, "00008798123400000012", accountType, accountStatus, "12-02-2015", BigDecimal.valueOf(2500.00), BigDecimal.valueOf(0.00), 1);
-        assertEquals(Account.class, savingAccount.getClass());
+        assertEquals(SavingAccount.class, savingAccount.getClass());
     }
 }
