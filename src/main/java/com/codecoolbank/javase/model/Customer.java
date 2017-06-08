@@ -71,4 +71,6 @@ public class Customer extends AbstractBaseModel {
     public List<Card> getCardList() {
         return cardList;
     }
+
+    public void changeCustomerStatus() { this.isActive = !isActive; }
 }
