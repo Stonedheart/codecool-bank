@@ -40,4 +40,10 @@ class CustomerTest {
         Customer customer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
         assertEquals(Collections.emptyList(), customer.getAccountList());
     }
+
+    @Test
+    void testIsCardsListIsEmptyByDefault() {
+        Customer customer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
+        assertEquals(Collections.emptyList(), customer.getCardList());
+    }
 }
