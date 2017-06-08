@@ -12,7 +12,7 @@ public class AccountDaoImpl implements AccountDao {
     SQLiteJDBC connToDB = SQLiteJDBC.getInstance();
 
     @Override
-    public Account findByID(Integer id) throws SQLException, InvalidValue {
+    public Account findAccountByID(Integer id) throws SQLException, InvalidValue {
         String selectQuery = String.format("SELECT * FROM Accounts WHERE `AccountID` = ?");
         PreparedStatement preparedStatement = connToDB.connectionWithDB().prepareStatement(selectQuery);
         preparedStatement.setInt(1, id);
@@ -32,7 +32,7 @@ public class AccountDaoImpl implements AccountDao {
             preparedStatement.close();
 
             Customer customer = new CustomerDaoImpl().findCustomerById(customerID);
-            
+
             switch (accountTypeID) {
                 case 1:
                     return new SavingAccount(id, customer, number, accountTypeID, accountStatusID, openDate, balance, debitLine, interest);
