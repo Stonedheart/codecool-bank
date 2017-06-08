@@ -32,16 +32,4 @@ public abstract class Account extends AbstractNumberModel {
         this.debitLine = debitLine;
         this.interest = interest;
     }
-
-    public void deposit(long amount) {}
-
-    public void withdraw(long amount) {}
-
-    public long getBalance() {
-        return 0;
-    }
-
-    public int getAccountId() {
-        return 0;
-    }
 }
