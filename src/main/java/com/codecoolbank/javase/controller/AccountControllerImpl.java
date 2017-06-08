@@ -15,7 +15,13 @@ public class AccountControllerImpl implements AccountController {
         if (account.equals(null)) {
             throw new NullPointerException("Account does not exists!");
         }
+        if (account.getAccountStatus().getName().equals("Active")) {
+            BigDecimal actualBalance = account.getBalance();
+            BigDecimal newBalance = actualBalance.add(amount);
 
+            Account updatedAccount = new Account(account.getId(), acfff) {
+            }
+        }
     }
 
     @Override

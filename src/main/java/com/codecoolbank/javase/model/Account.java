@@ -28,12 +28,20 @@ public abstract class Account extends AbstractNumberModel {
         this.accountType = accountType;
         this.accountStatus = accountStatus;
         this.openDate = openDate;
-        this.balance = balance;
+        setBalance(balance);
         this.debitLine = debitLine;
         this.interest = interest;
     }
 
     public BigDecimal getBalance() {
         return this.balance;
+    }
+
+    public AccountStatus getAccountStatus() {
+        return accountStatus;
+    }
+
+    private void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 }
