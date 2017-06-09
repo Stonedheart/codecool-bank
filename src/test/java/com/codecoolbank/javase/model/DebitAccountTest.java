@@ -26,7 +26,7 @@ class DebitAccountTest {
         final String openDate = "12-02-2015";
         final BigDecimal balance = BigDecimal.valueOf(2500.00);
         final BigDecimal debitLimit = BigDecimal.valueOf(0.00);
-        final Integer interest = 5;
+        final Integer interest = 0;
         DebitAccount debitAccount = new DebitAccount(customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
         assertEquals(DebitAccount.class, debitAccount.getClass());
     }
@@ -49,7 +49,7 @@ class DebitAccountTest {
         final String openDate = "12-02-2015";
         final BigDecimal balance = BigDecimal.valueOf(2500.00);
         final BigDecimal debitLimit = BigDecimal.valueOf(0.00);
-        final Integer interest = 5;
+        final Integer interest = 0;
         DebitAccount debitAccount = new DebitAccount(debitAccountID, customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
         assertEquals(DebitAccount.class, debitAccount.getClass());
     }
@@ -72,7 +72,7 @@ class DebitAccountTest {
         final String openDate = "12-02-2015";
         final BigDecimal balance = BigDecimal.valueOf(2500.00);
         final BigDecimal debitLimit = BigDecimal.valueOf(0.00);
-        final Integer interest = 5;
+        final Integer interest = 0;
         DebitAccount debitAccount = new DebitAccount(debitAccountID, customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
         assertEquals(customer.getId(), debitAccount.getCustomer().getId());
     }
@@ -95,7 +95,7 @@ class DebitAccountTest {
         final String openDate = "12-02-2015";
         final BigDecimal balance = BigDecimal.valueOf(2500.00);
         final BigDecimal debitLimit = BigDecimal.valueOf(0.00);
-        final Integer interest = 5;
+        final Integer interest = 0;
         DebitAccount debitAccount = new DebitAccount(debitAccountID, customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
         assertEquals(accountType.getId(), debitAccount.getAccountType().getId());
     }
@@ -118,7 +118,7 @@ class DebitAccountTest {
         final String openDate = "12-02-2015";
         final BigDecimal balance = BigDecimal.valueOf(2500.00);
         final BigDecimal debitLimit = BigDecimal.valueOf(0.00);
-        final Integer interest = 5;
+        final Integer interest = 0;
         DebitAccount debitAccount = new DebitAccount(debitAccountID, customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
         assertEquals(accountStatus.getId(), debitAccount.getAccountStatus().getId());
     }
@@ -141,7 +141,7 @@ class DebitAccountTest {
         final String openDate = "12-02-2015";
         final BigDecimal balance = BigDecimal.valueOf(2500.00);
         final BigDecimal debitLimit = BigDecimal.valueOf(0.00);
-        final Integer interest = 5;
+        final Integer interest = 0;
         DebitAccount debitAccount = new DebitAccount(debitAccountID, customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
         assertEquals(openDate, debitAccount.getOpenDate());
     }
@@ -164,7 +164,7 @@ class DebitAccountTest {
         final String openDate = "12-02-2015";
         final BigDecimal balance = BigDecimal.valueOf(2500.00);
         final BigDecimal debitLimit = BigDecimal.valueOf(0.00);
-        final Integer interest = 5;
+        final Integer interest = 0;
         DebitAccount debitAccount = new DebitAccount(debitAccountID, customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
         assertEquals(balance, debitAccount.getBalance());
     }
@@ -187,7 +187,7 @@ class DebitAccountTest {
         final String openDate = "12-02-2015";
         final BigDecimal balance = BigDecimal.valueOf(2500.00);
         final BigDecimal debitLimit = BigDecimal.valueOf(0.00);
-        final Integer interest = 5;
+        final Integer interest = 0;
         DebitAccount debitAccount = new DebitAccount(debitAccountID, customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
 
         BigDecimal newBalance = BigDecimal.valueOf(-1.00);
@@ -212,7 +212,7 @@ class DebitAccountTest {
         final String openDate = "12-02-2015";
         final BigDecimal balance = BigDecimal.valueOf(2500.00);
         final BigDecimal debitLimit = BigDecimal.valueOf(0.00);
-        final Integer interest = 5;
+        final Integer interest = 0;
         DebitAccount debitAccount = new DebitAccount(debitAccountID, customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
         assertEquals(debitLimit, debitAccount.getDebitLine());
     }
@@ -235,7 +235,7 @@ class DebitAccountTest {
         final String openDate = "12-02-2015";
         final BigDecimal balance = BigDecimal.valueOf(2500.00);
         final BigDecimal debitLimit = BigDecimal.valueOf(0.00);
-        final Integer interest = 5;
+        final Integer interest = 0;
         DebitAccount debitAccount = new DebitAccount(debitAccountID, customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
         assertEquals(interest, (Integer)debitAccount.getInterest().intValue());
     }
