@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,10 +22,13 @@ class SQLiteJDBCTest {
     }
 
     @Test
-    void testIsConnectionIsSetByConstructor() {
+    void testIfStatementIsSetByDefaultConstructor() {
+        assertEquals(SQLiteJDBC.getInstance().getStatement(), testJDBC.getStatement());
+    }
 
-//        DriverManager.getConnection("jdbc:sqlite:src/main/resources/database.db")
-//        testJDBC.getConn()
+    @Test
+    void testIfConnectionIsNullThenThrowsSQLException() throws SQLException {
+        assertThrows(SQLException.class, ()-> DriverManager.getConnection(null));
     }
 
     @Test
