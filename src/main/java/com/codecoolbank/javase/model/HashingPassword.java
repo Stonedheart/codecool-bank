@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 
 public class HashingPassword {
 
-    static String hashPassword(String password) {
+    public static String hashPassword(String password) {
         String separator = "_";
         String saltHash = reversedPassword(separator, password);
 

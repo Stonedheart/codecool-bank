@@ -28,7 +28,7 @@ class CustomerTest {
                 ()-> assertTrue(customer.getFirstName().equals("Jan")),
                 ()-> assertTrue(customer.getLastName().equals("Kowalski")),
                 ()-> assertTrue(customer.getLogin().equals("jfk")),
-                ()-> assertTrue(customer.getPassword().equals("notdead")),
+                ()-> assertTrue(customer.getPassword().equals(HashingPassword.hashPassword("notdead"))),
                 ()-> assertTrue(customer.getCreateDate().equals("11-11-2011")),
                 ()-> assertTrue(customer.getIsActive().equals(true)),
                 ()-> assertTrue(customer.getLastLogin().equals("06-06-2017"))

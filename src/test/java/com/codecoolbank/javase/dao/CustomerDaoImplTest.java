@@ -1,6 +1,7 @@
 package com.codecoolbank.javase.dao;
 
 import com.codecoolbank.javase.model.Customer;
+import com.codecoolbank.javase.model.HashingPassword;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
@@ -14,7 +15,7 @@ class CustomerDaoImplTest {
 
     @Test
     void testIfSuccessfullLogInReturnTrue() throws SQLException {
-        Customer testCustomer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-02-2014", true, "06-06-2017");
+        Customer testCustomer = new Customer(1,"Jan", "Kowalski", "JFK", "notDead", "11-02-2014", true, "06-06-2017");
         CustomerDaoImpl testCustomerDao = new CustomerDaoImpl();
         String validLogin = testCustomer.getLogin();
         String validPassword = testCustomer.getPassword();
