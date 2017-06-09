@@ -15,7 +15,7 @@ public class AccountControllerImpl implements AccountController {
     @Override
     public void deposit(Integer id, BigDecimal amount) throws SQLException, InvalidValue {
         Account account = new AccountDaoImpl().findAccountByID(id);
-        if (account.equals(null)) {
+        if (account == null) {
             throw new NullPointerException("Account does not exists!");
         }
 
