@@ -13,7 +13,8 @@ class AccountStatusTest {
     
     @Test
     void testIfConstructorIsInitializedValid() {
-        AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");
+        final Integer accountStatusID = 1;
+        AccountStatus accountStatus = new AccountStatus(accountStatusID, "Active", "Account is active");
         assertEquals(AccountStatus.class, accountStatus.getClass());
     }
 }

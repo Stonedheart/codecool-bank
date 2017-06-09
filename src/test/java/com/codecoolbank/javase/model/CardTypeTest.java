@@ -13,7 +13,8 @@ class CardTypeTest {
 
     @Test
     void testIfConstructorIsInitializedValid() {
-        CardType cardType = new CardType(1, "Debit", "Debit card for your savings, without credit limit");
+        final Integer cardTypeID = 1;
+        CardType cardType = new CardType(cardTypeID, "Debit", "Debit card for your savings, without credit limit");
         assertEquals(CardType.class, cardType.getClass());
     }
 }

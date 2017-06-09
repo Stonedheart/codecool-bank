@@ -10,19 +10,27 @@ class CustomerTest {
 
     @Test
     void testIfConstructorWithoutIdInitializeValidClassInstance() {
-        Customer testCustomer = new Customer("Jan", "Kowalski", "JFK", "notDead", "11-11-2014", true, "24-01-2017");
-        assertEquals(Customer.class, testCustomer.getClass());
+        final String createDate = "11-11-2014";
+        final String lastLogin = "24-01-2017";
+        Customer customer = new Customer("Jan", "Kowalski", "JFK", "notDead", createDate, true, lastLogin);
+        assertEquals(Customer.class, customer.getClass());
     }
 
     @Test
     void testIfConstructorWithIdInitializeValidClassInstance() {
-        Customer customer = new Customer(1, "Jan", "Kowalski", "JFK", "notDead", "11-11-2014", true, "24-01-2017");
+        final Integer customerID = 1;
+        final String createDate = "11-11-2014";
+        final String lastLogin = "24-01-2017";
+        Customer customer = new Customer(customerID, "Jan", "Kowalski", "JFK", "notDead", createDate, true, lastLogin);
         assertEquals(Customer.class, customer.getClass());
     }
 
     @Test
     void testGetters() {
-        Customer customer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
+        final Integer customerID = 1;
+        final String createDate = "11-11-2011";
+        final String lastLogin = "06-06-2017";
+        Customer customer = new Customer(customerID, "Jan", "Kowalski", "jfk", "notdead", createDate, true, lastLogin);
         assertAll(
                 ()-> assertTrue(customer.getId() == 1),
                 ()-> assertTrue(customer.getFirstName().equals("Jan")),
@@ -37,13 +45,19 @@ class CustomerTest {
 
     @Test
     void testIsAccountListIsEmptyByDefault() {
-        Customer customer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
+        final Integer customerID = 1;
+        final String createDate = "11-11-2014";
+        final String lastLogin = "24-01-2017";
+        Customer customer = new Customer(customerID, "Jan", "Kowalski", "JFK", "notDead", createDate, true, lastLogin);
         assertEquals(Collections.emptyList(), customer.getAccountList());
     }
 
     @Test
     void testIsCardsListIsEmptyByDefault() {
-        Customer customer = new Customer(1,"Jan", "Kowalski", "jfk", "notdead", "11-11-2011", true, "06-06-2017");
+        final Integer customerID = 1;
+        final String createDate = "11-11-2014";
+        final String lastLogin = "24-01-2017";
+        Customer customer = new Customer(customerID, "Jan", "Kowalski", "JFK", "notDead", createDate, true, lastLogin);
         assertEquals(Collections.emptyList(), customer.getCardList());
     }
 }

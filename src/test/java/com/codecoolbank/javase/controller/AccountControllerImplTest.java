@@ -14,7 +14,11 @@ class AccountControllerImplTest {
     @Test
     void testIfDepositThrowsNullPointerExceptionIfWhileAccountNonExist() throws SQLException, InvalidValue {
         AccountControllerImpl accountController = new AccountControllerImpl();
-        assertThrows(NullPointerException.class, ()-> accountController.deposit(10, BigDecimal.valueOf(0.00)));
+
+        final Integer accountID = 10;
+        final BigDecimal moneyToDeposit = BigDecimal.valueOf(0.00);
+
+        assertThrows(NullPointerException.class, ()-> accountController.deposit(accountID, moneyToDeposit));
     }
 
 //    @Test

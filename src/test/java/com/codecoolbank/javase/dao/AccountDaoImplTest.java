@@ -13,41 +13,67 @@ class AccountDaoImplTest {
     @Test
     void testSavingAccountToDbByUpdateQuery() throws SQLException, InvalidValue {
         AccountDaoImpl accountDaoImpl = new AccountDaoImpl();
-        Customer testCustomer = new Customer("Marian", "Nowak", "mrn", "1234", "01-01-2012", true, "10-11-2016");
-        AccountType accountType = new AccountType(1, "Saving account", "Account for your savings, percentage 5%");
-        AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");
 
-        SavingAccount savingAccount = new SavingAccount(2, testCustomer, "00008798123400000012", accountType, accountStatus, "12-02-2015", BigDecimal.valueOf(2500.00), BigDecimal.valueOf(0.00), 5);
+        final String createDate = "01-01-2012";
+        final String lastLogin = "10-11-2016";
+        Customer testCustomer = new Customer("John", "Coltraine", "coltr85", "cTH-85", createDate, true, lastLogin);
+
+        final Integer accountTypeID = 1;
+        AccountType accountType = new AccountType(accountTypeID, "Saving account", "Account for your savings, percentage 5%");
+
+        final Integer accountStatusID = 1;
+        AccountStatus accountStatus = new AccountStatus(accountStatusID, "Active", "Account is active");
+
+        final Integer savingAccountID = 2;
+        final String accountNumber = "00008798123400000012";
+        final BigDecimal balanceOnAccount = BigDecimal.valueOf(2500.00);
+        final BigDecimal debitLine = BigDecimal.valueOf(0.00);
+        final Integer interest = 5;
+        SavingAccount savingAccount = new SavingAccount(savingAccountID, testCustomer, accountNumber, accountType, accountStatus, "12-02-2015", balanceOnAccount, debitLine, interest);
 
         accountDaoImpl.saveAccountToDb(savingAccount);
-        Integer testAccountId = 2;
+        final Integer testAccountId = 2;
         assertEquals(testAccountId, accountDaoImpl.findAccountByID(testAccountId).getId());
     }
 
     @Test
     void testDebitAccountToDbByInsertQuery() throws SQLException, InvalidValue {
         AccountDaoImpl accountDaoImpl = new AccountDaoImpl();
-        Customer testCustomer = new Customer(3,"Marian", "Nowak", "mrn", "1234", "01-01-2012", true, "10-11-2016");
-        AccountType accountType = new AccountType(2, "Debit account", "Account to keeps your money");
+
+        final Integer customerID = 3;
+        final String createDate = "01-01-2012";
+        final String lastLogin = "10-11-2016";
+        Customer testCustomer = new Customer(customerID,"Marian", "Nowak", "mrn", "1234", createDate, true, lastLogin);
+
+        final Integer accountTypeID = 2;
+        AccountType accountType = new AccountType(accountTypeID, "Debit account", "Account to keeps your money");
+
         AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");
 
-        DebitAccount debitAccount = new DebitAccount(testCustomer, "00008798123400000025", accountType, accountStatus, "12-02-2015", BigDecimal.valueOf(2500.00), BigDecimal.valueOf(0.00), 5);
+        final String accountNumber = "00008798123400000025";
+        final String openDate = "12-02-2015";
+        final BigDecimal balanceOnAccount = BigDecimal.valueOf(2500.00);
+        final BigDecimal debitLine = BigDecimal.valueOf(0.00);
+        final Integer interest = 0;
+        DebitAccount debitAccount = new DebitAccount(testCustomer, accountNumber, accountType, accountStatus, openDate, balanceOnAccount, debitLine, interest);
 
         accountDaoImpl.saveAccountToDb(debitAccount);
-        Integer testAccountId = 2;
+
+        final Integer testAccountId = 2;
         assertEquals(testAccountId, accountDaoImpl.findAccountByID(testAccountId).getId());
     }
 
     @Test
     void testIfFindByIdIsValid() throws SQLException, InvalidValue {
-        Account accountFromDB = new AccountDaoImpl().findAccountByID(1);
-        assertTrue(accountFromDB.getId() == 1);
+        final Integer accountID = 1;
+        Account accountFromDB = new AccountDaoImpl().findAccountByID(accountID);
+        assertTrue(accountFromDB.getId() == accountID);
     }
 
     @Test
     void testIfFindByIdReturnNullIfIdIsInvalid() throws SQLException, InvalidValue {
         Integer invalidCustomerId = 666;
         Account accountFromDB = new AccountDaoImpl().findAccountByID(invalidCustomerId);
-            assertEquals(null, accountFromDB);
+        assertEquals(null, accountFromDB);
     }
 }

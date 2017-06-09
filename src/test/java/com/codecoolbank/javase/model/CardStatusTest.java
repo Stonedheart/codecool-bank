@@ -13,7 +13,8 @@ class CardStatusTest {
 
     @Test
     void testIfConstructorIsInitializedValid() {
-        CardStatus cardStatus = new CardStatus(1, "Active", "Card is active");
+        final Integer cardStatusID = 1;
+        CardStatus cardStatus = new CardStatus(cardStatusID, "Active", "Card is active");
         assertEquals(CardStatus.class, cardStatus.getClass());
     }
 }
