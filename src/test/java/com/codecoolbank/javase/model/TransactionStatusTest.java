@@ -16,4 +16,10 @@ class TransactionStatusTest {
         TransactionStatus transactionStatus = new TransactionStatus(1, "Waiting", "Your transaction is in order to accomplish");
         assertEquals(TransactionStatus.class, transactionStatus.getClass());
     }
+
+    @Test
+    void testIfNameIsInitializedValid() {
+        TransactionStatus transactionStatus = new TransactionStatus(1, "Waiting", "Your transaction is in order to accomplish");
+        assertEquals("Waiting", transactionStatus.getName());
+    }
 }
