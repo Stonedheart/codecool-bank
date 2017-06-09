@@ -44,6 +44,13 @@ class AccountDaoImplTest {
         assertTrue(accountFromDB.getId() == 1);
     }
 
+//    @Test
+//    void testIfFindByIdReturnInvalidValueException() throws SQLException, InvalidValue {
+//        AccountDaoImpl accountDaoImpl = new AccountDaoImpl();
+//        Account accountFromDB = new AccountDaoImpl().findAccountByID(3);
+//        assertThrows(InvalidValue.class, ()-> accountDaoImpl.findAccountByID(accountFromDB.getId()));
+//    }
+
     @Test
     void testIfFindByIdReturnNullIfIdIsInvalid() throws SQLException, InvalidValue {
         Integer invalidCustomerId = 666;
