@@ -14,18 +14,17 @@ public class AccountDaoImpl implements AccountDao {
     @Override
     public void saveAccountToDb(Account account) throws SQLException {
         if (account.getId() == null) {
-            String insertQuery = "INSERT INTO Accounts (`AccountID`, `CustomerID`, `Number`, `AccountTypeID`, `AccountStatusID`, `OpenDate`, `Balance`, `DebitLine`, `Interest`) " +
-                                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO Accounts (`CustomerID`, `Number`, `AccountTypeID`, `AccountStatusID`, `OpenDate`, `Balance`, `DebitLine`, `Interest`) " +
+                                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connToDB.connectionWithDB().prepareStatement(insertQuery);
-            preparedStatement.setInt(1, account.getId());
-            preparedStatement.setInt(2, account.getCustomer().getId());
-            preparedStatement.setString(3, account.getNumber());
-            preparedStatement.setInt(4, account.getAccountType().getId());
-            preparedStatement.setInt(5, account.getAccountStatus().getId());
-            preparedStatement.setString(6, account.getOpenDate());
-            preparedStatement.setInt(7, account.getBalance().intValueExact());
-            preparedStatement.setInt(8, account.getDebitLine().intValueExact());
-            preparedStatement.setInt(9, account.getInterest());
+            preparedStatement.setInt(1, account.getCustomer().getId());
+            preparedStatement.setString(2, account.getNumber());
+            preparedStatement.setInt(3, account.getAccountType().getId());
+            preparedStatement.setInt(4, account.getAccountStatus().getId());
+            preparedStatement.setString(5, account.getOpenDate());
+            preparedStatement.setInt(6, account.getBalance().intValueExact());
+            preparedStatement.setInt(7, account.getDebitLine().intValueExact());
+            preparedStatement.setInt(8, account.getInterest());
             preparedStatement.executeUpdate();
             preparedStatement.close();
             connToDB.closeJDBC();

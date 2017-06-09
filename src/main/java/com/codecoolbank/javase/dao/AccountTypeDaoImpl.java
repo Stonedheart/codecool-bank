@@ -1,7 +1,6 @@
 package com.codecoolbank.javase.dao;
 
 import com.codecoolbank.javase.model.AccountType;
-import com.codecoolbank.javase.model.Customer;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

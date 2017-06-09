@@ -17,11 +17,25 @@ class AccountDaoImplTest {
         AccountType accountType = new AccountType(1, "Saving account", "Account for your savings, percentage 5%");
         AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");
 
-        SavingAccount savingAccount = new SavingAccount(1, testCustomer, "00008798123400000012", accountType, accountStatus, "12-02-2015", BigDecimal.valueOf(2500.00), BigDecimal.valueOf(0.00), 5);
+        SavingAccount savingAccount = new SavingAccount(2, testCustomer, "00008798123400000012", accountType, accountStatus, "12-02-2015", BigDecimal.valueOf(2500.00), BigDecimal.valueOf(0.00), 5);
 
         accountDaoImpl.saveAccountToDb(savingAccount);
-        Integer testCustomerId = 2;
-        assertEquals(testCustomerId, accountDaoImpl.findAccountByID(testCustomerId).getId());
+        Integer testAccountId = 2;
+        assertEquals(testAccountId, accountDaoImpl.findAccountByID(testAccountId).getId());
+    }
+
+    @Test
+    void testDebitAccountToDbByInsertQuery() throws SQLException, InvalidValue {
+        AccountDaoImpl accountDaoImpl = new AccountDaoImpl();
+        Customer testCustomer = new Customer(3,"Marian", "Nowak", "mrn", "1234", "01-01-2012", true, "10-11-2016");
+        AccountType accountType = new AccountType(2, "Debit account", "Account to keeps your money");
+        AccountStatus accountStatus = new AccountStatus(1, "Active", "Account is active");
+
+        DebitAccount debitAccount = new DebitAccount(testCustomer, "00008798123400000025", accountType, accountStatus, "12-02-2015", BigDecimal.valueOf(2500.00), BigDecimal.valueOf(0.00), 5);
+
+        accountDaoImpl.saveAccountToDb(debitAccount);
+        Integer testAccountId = 2;
+        assertEquals(testAccountId, accountDaoImpl.findAccountByID(testAccountId).getId());
     }
 
 //    @Test
