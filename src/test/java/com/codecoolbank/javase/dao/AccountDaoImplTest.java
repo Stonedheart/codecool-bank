@@ -38,11 +38,11 @@ class AccountDaoImplTest {
         assertEquals(testAccountId, accountDaoImpl.findAccountByID(testAccountId).getId());
     }
 
-//    @Test
-//    void testIfFindByIdIsValid() throws SQLException {
-//        Customer customerFromDb = new CustomerDaoImpl().findCustomerById(1);
-//        assertTrue(customerFromDb.getId() == 1);
-//    }
+    @Test
+    void testIfFindByIdIsValid() throws SQLException, InvalidValue {
+        Account accountFromDB = new AccountDaoImpl().findAccountByID(1);
+        assertTrue(accountFromDB.getId() == 1);
+    }
 //
 //    @Test
 //    void testIfFindByIdReturnNullIfIdIsInvalid() throws SQLException {
