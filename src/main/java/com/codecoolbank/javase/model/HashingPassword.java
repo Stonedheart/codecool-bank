@@ -1,16 +1,20 @@
 package com.codecoolbank.javase.model;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.security.MessageDigest;
 
 public class HashingPassword {
 
-    public static String hashPassword(String password) {
+    @NotNull
+    static String hashPassword(String password) {
         String separator = "_";
         String saltHash = reversedPassword(separator, password);
 
         return sha256(password + saltHash);
     }
 
+    @NotNull
     private static String reversedPassword(String separator, String password) {
         char[] newPassword = password.toCharArray();
         Integer begin = 0;
@@ -29,6 +33,7 @@ public class HashingPassword {
         return separator + reversedResult;
     }
 
+    @NotNull
     private static String sha256(String saltedPassword) {
         try{
             MessageDigest digest = MessageDigest.getInstance("SHA-256");

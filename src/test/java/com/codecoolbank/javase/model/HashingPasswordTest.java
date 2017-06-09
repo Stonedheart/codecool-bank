@@ -1,5 +1,6 @@
 package com.codecoolbank.javase.model;
 
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 
 import java.io.UnsupportedEncodingException;
@@ -12,5 +13,10 @@ class HashingPasswordTest {
     @Test
     void testIsHashAlgoritmIsValid() {
         assertThrows(NoSuchAlgorithmException.class, ()-> MessageDigest.getInstance("SHA-244"));
+    }
+
+    @Test
+    void testIfClassthrowsRuntimeException() throws NoSuchAlgorithmException {
+        assertThrows(RuntimeException.class, ()-> HashingPassword.hashPassword(null));
     }
 }
