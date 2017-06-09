@@ -27,10 +27,11 @@ public class AccountControllerImpl implements AccountController {
                 case "Saving account":
                     SavingAccount updatedSavingAccount = new SavingAccount(account.getId(), account.getCustomer(), account.getNumber(), account.getAccountType(), account.getAccountStatus(), account.getOpenDate(), newBalance, account.getDebitLine(), account.getInterest());
                     accountDaoImpl.saveAccountToDb(updatedSavingAccount);
+                    break;
                 case "Debit account":
                     DebitAccount updatedDebitAccount = new DebitAccount(account.getId(), account.getCustomer(), account.getNumber(), account.getAccountType(), account.getAccountStatus(), account.getOpenDate(), newBalance, account.getDebitLine(), account.getInterest());
                     accountDaoImpl.saveAccountToDb(updatedDebitAccount);
-
+                    break;
                 default:
                     throw new InvalidValue("There is no such account type!");
             }
