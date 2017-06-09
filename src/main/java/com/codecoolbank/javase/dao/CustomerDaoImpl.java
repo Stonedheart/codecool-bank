@@ -5,7 +5,6 @@ import com.codecoolbank.javase.model.Customer;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.lang.reflect.Field;
 
 public class CustomerDaoImpl implements CustomerDao {
     private SQLiteJDBC connToDb = SQLiteJDBC.getInstance();

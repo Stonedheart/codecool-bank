@@ -11,7 +11,7 @@ public class AccountStatusDaoImpl implements AccountStatusDao {
 
     @Override
     public AccountStatus findAccountStatusById(Integer id) throws SQLException {
-        String selectQuery = String.format("SELECT * FROM AccountStatus WHERE `AccountStatusID` = ?");
+        String selectQuery = String.format("SELECT * FROM AccountStatuses WHERE `AccountStatusID` = ?");
         PreparedStatement preparedStatement = connToDb.connectionWithDB().prepareStatement(selectQuery);
         preparedStatement.setInt(1, id);
         ResultSet results = preparedStatement.executeQuery();

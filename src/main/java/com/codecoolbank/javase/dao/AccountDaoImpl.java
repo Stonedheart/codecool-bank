@@ -13,7 +13,7 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public void saveAccountToDb(Account account) throws SQLException {
-        if (account.getId().getClass() == Integer.class) {
+        if (account.getId() == null) {
             String insertQuery = "INSERT INTO Accounts (`AccountID`, `CustomerID`, `Number`, `AccountTypeID`, `AccountStatusID`, `OpenDate`, `Balance`, `DebitLine`, `Interest`) " +
                                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connToDB.connectionWithDB().prepareStatement(insertQuery);
@@ -28,6 +28,7 @@ public class AccountDaoImpl implements AccountDao {
             preparedStatement.setInt(9, account.getInterest());
             preparedStatement.executeUpdate();
             preparedStatement.close();
+            connToDB.closeJDBC();
         }
         else {
             String insertQuery = "UPDATE Accounts SET `AccountStatusID` = ?, `Balance` = ?, `DebitLine` = ?, `Interest` = ? WHERE `AccountID` = ?";
@@ -39,6 +40,7 @@ public class AccountDaoImpl implements AccountDao {
             preparedStatement.setInt(5, account.getId());
             preparedStatement.executeUpdate();
             preparedStatement.close();
+            connToDB.closeJDBC();
         }
     }
 
@@ -61,6 +63,7 @@ public class AccountDaoImpl implements AccountDao {
             Integer interest = resultSet.getInt("Interest");
 
             preparedStatement.close();
+            connToDB.closeJDBC();
 
             Customer customer = new CustomerDaoImpl().findCustomerById(customerID);
             AccountType accountType = new AccountTypeDaoImpl().findAccountTypeById(accountTypeID);
