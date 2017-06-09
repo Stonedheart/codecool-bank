@@ -71,12 +71,13 @@ class CardTest {
         final Integer interest = 5;
         SavingAccount savingAccount = new SavingAccount(savingAccountID, customer, accountNumber, accountType, accountStatus, openDate, balance, debitLimit, interest);
 
+        final Integer cardID = 1;
         final String cardNumber = "00008798123400000015";
         final String cardValidity = "5644";
         final BigDecimal buyingLimit = BigDecimal.valueOf(2500.00);
         final BigDecimal cashWithdrawLimit = BigDecimal.valueOf(500.00);
         final BigDecimal limit = BigDecimal.valueOf(0.00);
-        Card card = new Card(cardNumber, cardType, cardValidity, buyingLimit, cashWithdrawLimit, limit, savingAccount, cardStatus);
+        Card card = new Card(cardID, cardNumber, cardType, cardValidity, buyingLimit, cashWithdrawLimit, limit, savingAccount, cardStatus);
         assertEquals(Card.class, card.getClass());
     }
 }
