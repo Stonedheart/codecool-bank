@@ -43,11 +43,11 @@ class AccountDaoImplTest {
         Account accountFromDB = new AccountDaoImpl().findAccountByID(1);
         assertTrue(accountFromDB.getId() == 1);
     }
-//
-//    @Test
-//    void testIfFindByIdReturnNullIfIdIsInvalid() throws SQLException {
-//        Integer invalidCustomerId = 10000000;
-//        Customer customerFromDb = new CustomerDaoImpl().findCustomerById(invalidCustomerId);
-//            assertEquals(null, customerFromDb );
-//    }
+
+    @Test
+    void testIfFindByIdReturnNullIfIdIsInvalid() throws SQLException, InvalidValue {
+        Integer invalidCustomerId = 666;
+        Account accountFromDB = new AccountDaoImpl().findAccountByID(invalidCustomerId);
+            assertEquals(null, accountFromDB);
+    }
 }
