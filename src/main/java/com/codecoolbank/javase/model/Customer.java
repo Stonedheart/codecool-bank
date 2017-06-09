@@ -30,7 +30,7 @@ public class Customer extends AbstractBaseModel {
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;
-        this.password = password;
+        this.password = HashingPassword.hashPassword(password);
         this.createDate = createDate;
         this.isActive = isActive;
         this.lastLogin = lastLogin;
