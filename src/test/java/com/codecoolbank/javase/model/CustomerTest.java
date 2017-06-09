@@ -32,14 +32,14 @@ class CustomerTest {
         final String lastLogin = "06-06-2017";
         Customer customer = new Customer(customerID, "Jan", "Kowalski", "jfk", "notdead", createDate, true, lastLogin);
         assertAll(
-                ()-> assertTrue(customer.getId() == 1),
-                ()-> assertTrue(customer.getFirstName().equals("Jan")),
-                ()-> assertTrue(customer.getLastName().equals("Kowalski")),
-                ()-> assertTrue(customer.getLogin().equals("jfk")),
-                ()-> assertTrue(customer.getPassword().equals(HashingPassword.hashPassword("notdead"))),
-                ()-> assertTrue(customer.getCreateDate().equals("11-11-2011")),
-                ()-> assertTrue(customer.getIsActive().equals(true)),
-                ()-> assertTrue(customer.getLastLogin().equals("06-06-2017"))
+            ()-> assertTrue(customer.getId() == 1),
+            ()-> assertTrue(customer.getFirstName().equals("Jan")),
+            ()-> assertTrue(customer.getLastName().equals("Kowalski")),
+            ()-> assertTrue(customer.getLogin().equals("jfk")),
+            ()-> assertTrue(customer.getPassword().equals(HashingPassword.hashPassword("notdead"))),
+            ()-> assertTrue(customer.getCreateDate().equals("11-11-2011")),
+            ()-> assertTrue(customer.getIsActive().equals(true)),
+            ()-> assertTrue(customer.getLastLogin().equals("06-06-2017"))
         );
     }
 
